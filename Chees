@@ -1,0 +1,35 @@
+import streamlit as st
+import chess
+import chess.engine
+
+# Page settings
+st.set_page_config(page_title="Chess.com Rahul", page_icon="♟️", layout="centered")
+
+st.title("♟️ Chess.com Rahul")
+st.write("Play chess against Stockfish in your browser!")
+
+# Initialize board + history in session
+if "board" not in st.session_state:
+    st.session_state.board = chess.Board()
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+# Show board (ASCII for now)
+st.text(str(st.session_state.board))
+
+# User move input
+user_move = st.text_input("Enter your move (e.g., e2e4):")
+
+if st.button("Play Move"):
+    try:
+        move = chess.Move.from_uci(user_move.strip())
+        if move in st.session_state.board.legal_moves:
+            # Player move
+            st.session_state.board.push(move)
+            st.session_state.history.append(f"Player: {user_move}")
+
+            try:
+                # Stockfish reply
+                engine =
+
+
