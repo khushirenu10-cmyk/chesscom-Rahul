@@ -1,0 +1,6 @@
+# Chess.com Rahul ♟️
+Play chess against Stockfish in your browser.
+
+## Run locally
+pip install -r requirements.txt
+streamlit run app.py
